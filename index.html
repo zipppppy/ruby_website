@@ -18,13 +18,6 @@
             color: #f8f8f8;
             line-height: 1.6;
         }
-
-        /* Advertising Banner */
-        .banner {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #151515;
-        }
         
         /* Container */
         .container {
@@ -79,8 +72,8 @@
         /* Image Carousel - Portrait Mode */
         .carousel-container {
             position: relative;
-            width: 400px;
-            height: 600px;
+            width: 400px; /* Narrower width for portrait */
+            height: 600px; /* Taller height for portrait */
             margin: 40px auto;
             overflow: hidden;
             border-radius: 10px;
@@ -168,289 +161,122 @@
         .dot.active {
             background-color: #e83e8c;
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-            }
-            
-            .carousel-container {
-                width: 300px;
-                height: 450px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Advertising Banner -->
-    <div class="banner">
-        <a href="https://www.eurogirlsescort.com" target="_blank" title="EuroGirlsEscort.com">
-            <img src="https://www.eurogirlsescort.com/dist/images/banners/468X60.jpg" alt="EuroGirlsEscort.com" title="EuroGirlsEscort.com" />
-        </a>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">Ruby Services</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#">Book Now</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Image Carousel - Portrait Mode -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="carousel-item active">
-                <img src="images/1.png" alt="Model 1">
-            </div>
-            <div class="carousel-item">
-                <img src="images/2.png" alt="Model 2">
-            </div>
-            <div class="carousel-item">
-                <img src="images/3.png" alt="Model 3">
-            </div>
-            <div class="carousel-item">
-                <img src="images/4.png" alt="Model 4">
-            </div>
-            <div class="carousel-item">
-                <img src="images/5.png" alt="Model 5">
-            </div>
-        </div>
-        <div class="carousel-control prev">&#10094;</div>
-        <div class="carousel-control next">&#10095;</div>
-        <div class="carousel-dots">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-            <span class="dot" data-index="3"></span>
-            <span class="dot" data-index="4"></span>
-        </div>
-    </div>
-
-    <!-- JavaScript for Carousel -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const items = document.querySelectorAll('.carousel-item');
-            const dots = document.querySelectorAll('.dot');
-            const prevBtn = document.querySelector('.carousel-control.prev');
-            const nextBtn = document.querySelector('.carousel-control.next');
-            let activeIndex = 0;
-            
-            function showSlide(index) {
-                items.forEach(item => item.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                items[index].classList.add('active');
-                dots[index].classList.add('active');
-            }
-
-            function nextSlide() {
-                activeIndex = (activeIndex + 1) % items.length;
-                showSlide(activeIndex);
-            }
-
-            function prevSlide() {
-                activeIndex = (activeIndex - 1 + items.length) % items.length;
-                showSlide(activeIndex);
-            }
-
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    activeIndex = parseInt(this.getAttribute('data-index'));
-                    showSlide(activeIndex);
-                });
-            });
-
-            setInterval(nextSlide, 5000);
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruby Services</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
         
-        body {
-            background-color: #0a0a0a;
-            color: #f8f8f8;
-            line-height: 1.6;
-        }
-
-        /* Advertising Banner */
-        .banner {
+        /* Hero Text */
+        .hero-text {
             text-align: center;
-            padding: 10px 0;
-            background-color: #151515;
-        }
-        
-        /* Container */
-        .container {
-            max-width: 1200px;
+            padding: 40px 20px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
         }
         
-        /* Header */
-        header {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 20px 0;
-            width: 100%;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
+        .hero-text h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
             color: #e83e8c;
             font-family: 'Georgia', serif;
         }
         
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
+        .hero-text p {
             font-size: 18px;
+            margin-bottom: 30px;
         }
         
-        nav ul li a:hover {
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            background-color: #e83e8c;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 2px solid #e83e8c;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
             color: #e83e8c;
         }
         
-        /* Image Carousel - Portrait Mode */
-        .carousel-container {
-            position: relative;
-            width: 400px;
-            height: 600px;
-            margin: 40px auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #151515;
         }
         
-        .carousel {
-            display: flex;
-            width: 100%;
-            height: 100%;
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: #e83e8c;
+            font-family: 'Georgia', serif;
             position: relative;
         }
         
-        .carousel-item {
-            width: 100%;
-            flex-shrink: 0;
-            height: 100%;
-            opacity: 0;
+        .section-title:after {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            transition: opacity 0.6s ease-in-out;
-        }
-        
-        .carousel-item.active {
-            opacity: 1;
-        }
-        
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 30px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 5;
-            transition: background-color 0.3s;
-        }
-        
-        .carousel-control:hover {
-            background-color: rgba(232, 62, 140, 0.7);
-        }
-        
-        .carousel-control.prev {
-            left: 10px;
-        }
-        
-        .carousel-control.next {
-            right: 10px;
-        }
-        
-        /* Dots navigation */
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 5;
-        }
-        
-        .dot {
-            width: 12px;
-            height: 12px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .dot.active {
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
             background-color: #e83e8c;
         }
-
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background-color: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding-top: 25px; /* Added padding to top since images are removed */
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(232, 62, 140, 0.2);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: #e83e8c;
+            font-size: 22px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .service-content p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .service-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .service-btn {
+            font-size: 16px;
+            padding: 10px 25px;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -465,18 +291,14 @@
                 width: 300px;
                 height: 450px;
             }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Advertising Banner -->
-    <div class="banner">
-        <a href="https://www.eurogirlsescort.com" target="_blank" title="EuroGirlsEscort.com">
-            <img src="https://www.eurogirlsescort.com/dist/images/banners/468X60.jpg" alt="EuroGirlsEscort.com" title="EuroGirlsEscort.com" />
-        </a>
-    </div>
-
     <!-- Header -->
     <header>
         <div class="container header-content">
@@ -521,6 +343,42 @@
         </div>
     </div>
 
+    <!-- Hero Text -->
+    <div class="hero-text">
+        <h1>Elegant & Exclusive</h1>
+        <p>Experience a world of luxury and sophistication with personalized services tailored to exceed your expectations.</p>
+        <a href="https://wa.me/18455300694" class="btn">Book Now</a>    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Exquisite Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>VIP Package</h3>
+                        <p>The ultimate luxury experience with personalized attention and exclusive benefits designed for those who appreciate the finer things.</p>
+                        <span class="service-price">Starting at 300£</span>
+                        <a href="https://wa.me/18455300694" class="btn">Book Now</a>                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Premium Experience</h3>
+                        <p>A sophisticated encounter that combines elegance with passionate attention to detail for an unforgettable time.</p>
+                        <span class="service-price">Starting at 200£</span>
+                        <a href="https://wa.me/18455300694" class="btn">Book Now</a>                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Classic Rendezvous</h3>
+                        <p>The perfect introduction to our professional services with a personal touch that will leave you wanting more.</p>
+                        <span class="service-price">Starting at 100£                        </span>
+                        <a href="https://wa.me/18455300694" class="btn">Book Now</a>                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- JavaScript for Carousel -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -530,33 +388,53 @@
             const nextBtn = document.querySelector('.carousel-control.next');
             let activeIndex = 0;
             
+            // Function to show a specific slide
             function showSlide(index) {
-                items.forEach(item => item.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
+                // Remove active class from all items and dots
+                items.forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Add active class to the current item and dot
                 items[index].classList.add('active');
                 dots[index].classList.add('active');
             }
-
+            
+            // Function to go to the next slide
             function nextSlide() {
-                activeIndex = (activeIndex + 1) % items.length;
+                activeIndex++;
+                if (activeIndex >= items.length) {
+                    activeIndex = 0;
+                }
                 showSlide(activeIndex);
             }
-
+            
+            // Function to go to the previous slide
             function prevSlide() {
-                activeIndex = (activeIndex - 1 + items.length) % items.length;
+                activeIndex--;
+                if (activeIndex < 0) {
+                    activeIndex = items.length - 1;
+                }
                 showSlide(activeIndex);
             }
-
+            
+            // Add event listeners to the control buttons
             nextBtn.addEventListener('click', nextSlide);
             prevBtn.addEventListener('click', prevSlide);
-
+            
+            // Add event listeners to the dots
             dots.forEach(dot => {
                 dot.addEventListener('click', function() {
                     activeIndex = parseInt(this.getAttribute('data-index'));
                     showSlide(activeIndex);
                 });
             });
-
+            
+            // Auto-rotate carousel every 5 seconds
             setInterval(nextSlide, 5000);
         });
     </script>
